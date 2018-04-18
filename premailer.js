@@ -50,11 +50,11 @@ var request = require('request');
 */
 exports.prepare = function (_options, next) {
 
-	var options = _.defaults({
+	var options = _.defaults({}, _options, {
 		premailerAPI: "http://premailer.dialect.ca/api/0.1/documents",
 		fetchHTML: true,
 		fetchText: true,
-	}, _options);
+	});
 
 	if (_.has(options, 'baseUrl')) {
 		options.base_url = options.baseUrl;
